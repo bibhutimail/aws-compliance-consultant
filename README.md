@@ -45,3 +45,6 @@ Add new checks or services by extending modules in `aws_security_scan/`.
 
 ---
 © 2025 AWS Security Consultant Tool
+
+# aws-compliance-consultant
+AWS Security &amp; Best Practices Reporting Tool to proactively assess and report on the security posture of our AWS environments.
