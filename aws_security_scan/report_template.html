@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Security Assessment Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
+        .container { max-width: 1000px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
+        h1, h2, h3 { color: #2d3e50; }
+        .summary { background: #e8f4fa; padding: 20px; border-radius: 6px; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { padding: 10px; border-bottom: 1px solid #e0e0e0; }
+        th { background: #f0f6fa; }
+        .high { color: #d32f2f; font-weight: bold; }
+        .medium { color: #fbc02d; font-weight: bold; }
+        .low { color: #388e3c; font-weight: bold; }
+        .charts { display: flex; gap: 30px; flex-wrap: wrap; }
+        .chart { flex: 1 1 400px; background: #fafbfc; border-radius: 6px; padding: 10px; }
+        .footer { text-align: right; color: #888; font-size: 0.9em; margin-top: 40px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>AWS Security Assessment Report</h1>
+    <div class="summary">
+        <h2>Executive Summary</h2>
+        <p><b>Account ID:</b> {{ account_id }}<br>
+        <b>Scan Time:</b> {{ timestamp }}</p>
+        <ul>
+            <li><b>Total Findings:</b> {{ summary.total }}</li>
+            <li><span class="high">High:</span> {{ summary.high }}</li>
+            <li><span class="medium">Medium:</span> {{ summary.medium }}</li>
+            <li><span class="low">Low:</span> {{ summary.low }}</li>
+        </ul>
+        <h3>Findings by Service & Severity</h3>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>High</th>
+                <th>Medium</th>
+                <th>Low</th>
+            </tr>
+            {% for row in summary.service_table %}
+            <tr>
+                <td>{{ row.service }}</td>
+                <td>{{ row.High if row.High is defined else 0 }}</td>
+                <td>{{ row.Medium if row.Medium is defined else 0 }}</td>
+                <td>{{ row.Low if row.Low is defined else 0 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="charts">
+        <div class="chart">{{ charts.pie|safe }}</div>
+        <div class="chart">{{ charts.bar|safe }}</div>
+    </div>
+    <h2>Detailed Findings</h2>
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Resource ID</th>
+            <th>Finding</th>
+            <th>Severity</th>
+            <th>Recommendation</th>
+            <th>CIS Benchmark</th>
+        </tr>
+        {% for f in findings %}
+        <tr>
+            <td>{{ f.service }}</td>
+            <td>{{ f.resource_id }}</td>
+            <td>{{ f.finding }}</td>
+            <td class="{{ f.severity|lower }}">{{ f.severity }}</td>
+            <td>{{ f.recommendation }}</td>
+            <td>{{ f.cis_control if f.cis_control is defined else '' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="footer">
+        AWS Security & Best Practices Reporting Tool &copy; 2025
+    </div>
+</div>
+</body>
+</html>
