@@ -6,6 +6,19 @@ import os
 from datetime import datetime
 
 class ReportGenerator:
+    def generate_html_string(self):
+        df = pd.DataFrame(self.findings)
+        summary = self._generate_summary(df)
+        charts = self._generate_charts(df)
+        template = self._get_template()
+        html = template.render(
+            summary=summary,
+            findings=df.to_dict(orient='records'),
+            charts=charts,
+            account_id=self.account_id,
+            timestamp=datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+        )
+        return html
     def __init__(self, findings, account_id):
         self.findings = findings
         self.account_id = account_id

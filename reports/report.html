@@ -1,4 +1,30 @@
-<!DOCTYPE html>
+
+    <html><head><title>AWS Security & Cost Report</title>
+    <style>
+    .tab { overflow: hidden; border-bottom: 1px solid #ccc; }
+    .tab button { background: #f1f1f1; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; }
+    .tab button.active { background: #ccc; }
+    .tabcontent { display: none; padding: 20px; }
+    </style>
+    <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    window.onload = function() { document.getElementById('defaultOpen').click(); }
+    </script>
+    </head><body>
+    <h1>AWS Security & Cost Report</h1>
+    <div class="tab">
+      <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Security')">Security Report</button>
+      <button class="tablinks" onclick="openTab(event, 'Cost')">Cost Report</button>
+    </div>
+    <div id="Security" class="tabcontent"><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,13 +50,13 @@
     <h1>AWS Security Assessment Report</h1>
     <div class="summary">
         <h2>Executive Summary</h2>
-        <p><b>Account ID:</b> 724201375102<br>
-        <b>Scan Time:</b> 2025-08-24 16:30 UTC</p>
+        <p><b>Account ID:</b> 245243128874<br>
+        <b>Scan Time:</b> 2025-08-26 13:29 UTC</p>
         <ul>
-            <li><b>Total Findings:</b> 3</li>
-            <li><span class="high">High:</span> 1</li>
-            <li><span class="medium">Medium:</span> 2</li>
-            <li><span class="low">Low:</span> 0</li>
+            <li><b>Total Findings:</b> 84</li>
+            <li><span class="high">High:</span> 58</li>
+            <li><span class="medium">Medium:</span> 12</li>
+            <li><span class="low">Low:</span> 14</li>
         </ul>
         <h3>Findings by Service & Severity</h3>
         <table>
@@ -49,6 +75,13 @@
             </tr>
             
             <tr>
+                <td>EC2</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+            </tr>
+            
+            <tr>
                 <td>GuardDuty</td>
                 <td>0</td>
                 <td>1</td>
@@ -58,7 +91,21 @@
             <tr>
                 <td>IAM</td>
                 <td>0</td>
-                <td>1</td>
+                <td>6</td>
+                <td>4</td>
+            </tr>
+            
+            <tr>
+                <td>Lambda</td>
+                <td>0</td>
+                <td>0</td>
+                <td>10</td>
+            </tr>
+            
+            <tr>
+                <td>SecurityGroup</td>
+                <td>57</td>
+                <td>0</td>
                 <td>0</td>
             </tr>
             
@@ -66,8 +113,8 @@
     </div>
     <div class="charts">
         <div class="chart"><div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="55d09a57-2bb8-4bd9-ac02-6db644afdc32" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("55d09a57-2bb8-4bd9-ac02-6db644afdc32")) {                    Plotly.newPlot(                        "55d09a57-2bb8-4bd9-ac02-6db644afdc32",                        [{"labels":["Medium","High"],"values":{"dtype":"i1","bdata":"AgE="},"type":"pie"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div></div>
-        <div class="chart"><div>                            <div id="0afb22dc-3997-42db-9434-5a5ab7821f87" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("0afb22dc-3997-42db-9434-5a5ab7821f87")) {                    Plotly.newPlot(                        "0afb22dc-3997-42db-9434-5a5ab7821f87",                        [{"name":"High","x":["CloudTrail","GuardDuty","IAM"],"y":{"dtype":"i1","bdata":"AQAA"},"type":"bar"},{"name":"Medium","x":["CloudTrail","GuardDuty","IAM"],"y":{"dtype":"i1","bdata":"AAEB"},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div></div>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="cb008b39-fc6c-4e9a-a918-d084de631ab2" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("cb008b39-fc6c-4e9a-a918-d084de631ab2")) {                    Plotly.newPlot(                        "cb008b39-fc6c-4e9a-a918-d084de631ab2",                        [{"labels":["High","Low","Medium"],"values":{"dtype":"i1","bdata":"Og4M"},"type":"pie"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div></div>
+        <div class="chart"><div>                            <div id="7e4a72bc-47f7-48a3-808a-6574518319f2" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("7e4a72bc-47f7-48a3-808a-6574518319f2")) {                    Plotly.newPlot(                        "7e4a72bc-47f7-48a3-808a-6574518319f2",                        [{"name":"High","x":["CloudTrail","EC2","GuardDuty","IAM","Lambda","SecurityGroup"],"y":{"dtype":"i1","bdata":"AQAAAAA5"},"type":"bar"},{"name":"Medium","x":["CloudTrail","EC2","GuardDuty","IAM","Lambda","SecurityGroup"],"y":{"dtype":"i1","bdata":"AAUBBgAA"},"type":"bar"},{"name":"Low","x":["CloudTrail","EC2","GuardDuty","IAM","Lambda","SecurityGroup"],"y":{"dtype":"i1","bdata":"AAAABAoA"},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div></div>
     </div>
     <h2>Detailed Findings</h2>
     <table>
@@ -81,12 +128,741 @@
         </tr>
         
         <tr>
+            <td>EC2</td>
+            <td>i-0e0041f789317f03d</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-055486e371183e1ce</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0a3bc046914066241</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0557e67782b6a267a</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0fd69b6300666f58b</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0653d4562f8fa9fde</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-006c0555e7adbf74f</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-006c0555e7adbf74f</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-006c0555e7adbf74f</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-006c0555e7adbf74f</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-03df87219aa979694</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-03df87219aa979694</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-03df87219aa979694</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-03df87219aa979694</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-03df87219aa979694</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0f7905433ee4f7238</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0397ba475f45db83a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0397ba475f45db83a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0397ba475f45db83a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0e85f0109d240689b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c6cd1aeeb987ca2d</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c6cd1aeeb987ca2d</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0de1b07e6ed2825ab</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0de1b07e6ed2825ab</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0fa783ed2b1fa212e</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0fa783ed2b1fa212e</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0fa783ed2b1fa212e</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02a18a2ba8f0af57a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02a18a2ba8f0af57a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02a18a2ba8f0af57a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0e0082aa6a643efc9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0e0082aa6a643efc9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0e0082aa6a643efc9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-00659bd7e0fe45c4f</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-030e5c9a8233d3d36</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-030e5c9a8233d3d36</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-030e5c9a8233d3d36</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-030e5c9a8233d3d36</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-05de4fbf379f3b626</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0e7074e02163056c5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0e7074e02163056c5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08a7b4797ab2c7420</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08a7b4797ab2c7420</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08a7b4797ab2c7420</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08a7b4797ab2c7420</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08a7b4797ab2c7420</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-010c31db294fdd6db</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-010c31db294fdd6db</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-010c31db294fdd6db</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0b2138106d738f932</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-014de5f4966ec796b</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c81393472513d109</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c81393472513d109</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c81393472513d109</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0ab9b3c29ea0a0bd9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
             <td>IAM</td>
-            <td>bibhutimail</td>
+            <td>ci-cd-user</td>
             <td>User has no MFA enabled.</td>
             <td class="medium">Medium</td>
             <td>Enable MFA for all IAM users.</td>
             <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>devendra@veersatech.com</td>
+            <td>User has no MFA enabled.</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>mytime_user</td>
+            <td>User has no MFA enabled.</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>pushpender@veersatech.com</td>
+            <td>User has no MFA enabled.</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>sunil.modi@veersatech.com</td>
+            <td>User has no MFA enabled.</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>vextract-project</td>
+            <td>User has no MFA enabled.</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>ci-cd-user:AKIATSGNBFQVHTEFY4ER</td>
+            <td>Access key unused for over 90 days.</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>ci-cd-user:AKIATSGNBFQVKBI3S2O6</td>
+            <td>Access key unused for over 90 days.</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>mytime_user:AKIATSGNBFQVEHHIINXW</td>
+            <td>Access key unused for over 90 days.</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>vextract-project:AKIATSGNBFQVFZMCXIPA</td>
+            <td>Access key unused for over 90 days.</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>tests</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>dischargePatientDemo</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>sendSQSTriggerLambda</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>finalAuth</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>testMyAuth</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>userLogin</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>StopEc2ByTag</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>authLambda</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>auth2</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>demo-cros-lambda</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
         </tr>
         
         <tr>
@@ -113,4 +889,105 @@
     </div>
 </div>
 </body>
-</html>
+</html></div>
+    <div id="Cost" class="tabcontent">
+    <h2>AWS Cost Report</h2>
+    <p><b>Current Cost:</b> $88.63 / month<br>
+    <b>Projected Cost After Optimization:</b> $72.63 / month<br>
+    <b>Potential Savings:</b> $16.00 (18.1%)</p>
+    <h3>Cost by Service</h3>
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="525cc801-2fb9-4d71-94df-2dfdf4cab6a3" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("525cc801-2fb9-4d71-94df-2dfdf4cab6a3")) {                    Plotly.newPlot(                        "525cc801-2fb9-4d71-94df-2dfdf4cab6a3",                        [{"labels":["AWS Secrets Manager","Amazon DynamoDB","Amazon EC2 Container Registry (ECR)","EC2 - Other","Amazon Redshift","Amazon Relational Database Service","Amazon Simple Queue Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Textract","Amazon Virtual Private Cloud","AmazonCloudWatch","Tax"],"values":{"dtype":"f8","bdata":"o2G6kpmZ2T8AAAAAAAAAAMzQt8\u002fqYKE\u002foWCFZh65MUBl8tDuxVSAP85+6DdIV1Q\u002fAAAAAAAAAACU3Fxa31BQPwAAAAAAAAAAOuuhZlmKpT8AAAAAAGBIQMP1KFyPwh1Am9KEKWZm5j+PwvUoXA8rQA=="},"type":"pie"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div>
+    <h3>Optimization Recommendations</h3>
+    <table border=1><tr><th>Service</th><th>Resource ID</th><th>Recommendation</th><th>Potential Savings</th></tr>
+    <tr><td>Amazon Textract</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Textract.</td><td>$9.75</td></tr><tr><td>EC2 - Other</td><td></td><td>Consider rightsizing or reserved pricing for EC2 - Other.</td><td>$3.54</td></tr><tr><td>Tax</td><td></td><td>Consider rightsizing or reserved pricing for Tax.</td><td>$2.71</td></tr>
+    </table>
+    <h3>EC2 Idle Instance Report</h3>
+    <p>No idle EC2 instances detected.</p>
+    <h3>Before vs After Optimization</h3>
+    <div>                            <div id="a2bc8642-7d41-4c22-a5ab-a9e3e12fe49a" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("a2bc8642-7d41-4c22-a5ab-a9e3e12fe49a")) {                    Plotly.newPlot(                        "a2bc8642-7d41-4c22-a5ab-a9e3e12fe49a",                        [{"name":"Current","x":["Cost"],"y":[88.62934524399999],"type":"bar"},{"name":"Optimized","x":["Cost"],"y":[72.62934524399999],"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div>
+    <h3>Raw Data</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>service</th>
+      <th>region</th>
+      <th>cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>us-east-1</td>
+      <td>0.400000</td>
+    </tr>
+    <tr>
+      <td>Amazon DynamoDB</td>
+      <td>us-east-1</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>Amazon EC2 Container Registry (ECR)</td>
+      <td>us-east-1</td>
+      <td>0.033943</td>
+    </tr>
+    <tr>
+      <td>EC2 - Other</td>
+      <td>us-east-1</td>
+      <td>17.723120</td>
+    </tr>
+    <tr>
+      <td>Amazon Redshift</td>
+      <td>us-east-1</td>
+      <td>0.007974</td>
+    </tr>
+    <tr>
+      <td>Amazon Relational Database Service</td>
+      <td>ap-southeast-1</td>
+      <td>0.001242</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>us-east-1</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ap-southeast-1</td>
+      <td>0.000996</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>global</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>us-east-1</td>
+      <td>0.042071</td>
+    </tr>
+    <tr>
+      <td>Amazon Textract</td>
+      <td>us-east-1</td>
+      <td>48.750000</td>
+    </tr>
+    <tr>
+      <td>Amazon Virtual Private Cloud</td>
+      <td>us-east-1</td>
+      <td>7.440000</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>us-east-1</td>
+      <td>0.700000</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td>NoRegion</td>
+      <td>13.530000</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    </body></html>
+    
