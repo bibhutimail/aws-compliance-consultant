@@ -60,6 +60,7 @@
             <th>Service</th>
             <th>Resource ID</th>
             <th>Finding</th>
+            <th>Port range</th>
             <th>Severity</th>
             <th>Recommendation</th>
             <th>CIS Benchmark</th>
@@ -69,6 +70,7 @@
             <td>{{ f.service }}</td>
             <td>{{ f.resource_id }}</td>
             <td>{{ f.finding }}</td>
+            <td>{% if f.port_range is defined %}{{ f.port_range }}{% else %}-{% endif %}</td>
             <td class="{{ f.severity|lower }}">{{ f.severity }}</td>
             <td>{{ f.recommendation }}</td>
             <td>{{ f.cis_control if f.cis_control is defined else '' }}</td>

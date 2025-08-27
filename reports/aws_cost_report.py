@@ -1,4 +1,20 @@
 def generate_html_fragment(df, recs):
+    if df.empty or 'cost' not in df.columns or 'service' not in df.columns:
+        # Friendly message if no cost data
+        try:
+            account_id = boto3.client('sts').get_caller_identity()['Account']
+        except Exception:
+            account_id = 'Unknown'
+        scan_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+        return f'''
+        <h2>AWS Cost Report</h2>
+        <div style="background:#e8f4fa;padding:10px;border-radius:6px;margin-bottom:20px;">
+        <b>Executive Summary</b><br>
+        <b>Account ID:</b> {account_id}<br>
+        <b>Scan Time:</b> {scan_time}<br>
+        <b>No cost data available for this account or time period.</b>
+        </div>
+        '''
     total_cost = df['cost'].sum()
     projected_cost = total_cost - sum(r['potential_savings'] for r in recs)
     savings = total_cost - projected_cost
@@ -8,11 +24,22 @@ def generate_html_fragment(df, recs):
     bar.add_bar(name='Current', x=['Cost'], y=[total_cost])
     bar.add_bar(name='Optimized', x=['Cost'], y=[projected_cost])
     bar_html = bar.to_html(full_html=False, include_plotlyjs=False)
+    # Get account ID
+    try:
+        account_id = boto3.client('sts').get_caller_identity()['Account']
+    except Exception:
+        account_id = 'Unknown'
+    scan_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
     template_str = '''
     <h2>AWS Cost Report</h2>
-    <p><b>Current Cost:</b> ${{ '%.2f' % total_cost }} / month<br>
+    <div style="background:#e8f4fa;padding:10px;border-radius:6px;margin-bottom:20px;">
+    <b>Executive Summary</b><br>
+    <b>Account ID:</b> {{ account_id }}<br>
+    <b>Scan Time:</b> {{ scan_time }}<br>
+    <b>Current Cost:</b> ${{ '%.2f' % total_cost }} / month<br>
     <b>Projected Cost After Optimization:</b> ${{ '%.2f' % projected_cost }} / month<br>
-    <b>Potential Savings:</b> ${{ '%.2f' % savings }} ({{ (savings/total_cost*100) | round(1) }}%)</p>
+    <b>Potential Savings:</b> ${{ '%.2f' % savings }} ({{ (savings/total_cost*100) | round(1) }}%)
+    </div>
     <h3>Cost by Service</h3>
     {{ pie_html | safe }}
     <h3>Optimization Recommendations</h3>
@@ -41,7 +68,9 @@ def generate_html_fragment(df, recs):
         pie_html=pie_html,
         bar_html=bar_html,
         recs=recs,
-        df=df
+        df=df,
+        account_id=account_id,
+        scan_time=scan_time
     )
     return html
 
@@ -81,6 +110,9 @@ def analyze_costs(cost_data):
 # 3. Generate recommendations (simple heuristics)
 def generate_recommendations(df, session=None, start_date=None, end_date=None):
     recs = []
+    # Return empty if df is empty or missing 'service' column
+    if df.empty or 'service' not in df.columns:
+        return recs
     # Lower threshold for demo
     for service, group in df.groupby('service'):
         total = group['cost'].sum()

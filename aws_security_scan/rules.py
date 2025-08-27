@@ -18,12 +18,19 @@ def evaluate_all_rules(resources):
     # Security Groups open to 0.0.0.0/0
     for sg in resources.get('security_groups', []):
         for perm in sg.get('IpPermissions', []):
+            port_range = None
+            if 'FromPort' in perm and 'ToPort' in perm:
+                if perm['FromPort'] == perm['ToPort']:
+                    port_range = str(perm['FromPort'])
+                else:
+                    port_range = f"{perm['FromPort']}-{perm['ToPort']}"
             for ip_range in perm.get('IpRanges', []):
                 if ip_range.get('CidrIp') == '0.0.0.0/0':
                     findings.append({
                         'service': 'SecurityGroup',
                         'resource_id': sg['GroupId'],
                         'finding': 'Security group open to 0.0.0.0/0.',
+                        'port_range': port_range,
                         'severity': 'High',
                         'recommendation': 'Restrict security group ingress rules.',
                         'cis_control': 'CIS 4.1'
