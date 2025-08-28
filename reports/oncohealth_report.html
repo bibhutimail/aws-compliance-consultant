@@ -1,0 +1,2828 @@
+
+    <html><head><title>AWS Security & Cost Report</title>
+    <style>
+    .tab { overflow: hidden; border-bottom: 1px solid #ccc; }
+    .tab button { background: #f1f1f1; float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; transition: 0.3s; }
+    .tab button.active { background: #ccc; }
+    .tabcontent { display: none; padding: 20px; }
+    </style>
+    <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    window.onload = function() { document.getElementById('defaultOpen').click(); }
+    </script>
+    </head><body>
+    <h1>AWS Security & Cost Report</h1>
+    <div class="tab">
+      <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Security')">Security Report</button>
+      <button class="tablinks" onclick="openTab(event, 'Cost')">Cost Report</button>
+    </div>
+    <div id="Security" class="tabcontent"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Security Assessment Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
+        .container { max-width: 1000px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
+        h1, h2, h3 { color: #2d3e50; }
+        .summary { background: #e8f4fa; padding: 20px; border-radius: 6px; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { padding: 10px; border-bottom: 1px solid #e0e0e0; }
+        th { background: #f0f6fa; }
+        .high { color: #d32f2f; font-weight: bold; }
+        .medium { color: #fbc02d; font-weight: bold; }
+        .low { color: #388e3c; font-weight: bold; }
+        .charts { display: flex; gap: 30px; flex-wrap: wrap; }
+        .chart { flex: 1 1 400px; background: #fafbfc; border-radius: 6px; padding: 10px; }
+        .footer { text-align: right; color: #888; font-size: 0.9em; margin-top: 40px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>AWS Security Assessment Report</h1>
+    <div class="summary">
+        <h2>Executive Summary</h2>
+        <p><b>Account ID:</b> 127214185751<br>
+        <b>Scan Time:</b> 2025-08-28 05:10 UTC</p>
+        <ul>
+            <li><b>Total Findings:</b> 149</li>
+            <li><span class="high">High:</span> 62</li>
+            <li><span class="medium">Medium:</span> 23</li>
+            <li><span class="low">Low:</span> 64</li>
+        </ul>
+        <h3>Findings by Service & Severity</h3>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>High</th>
+                <th>Medium</th>
+                <th>Low</th>
+            </tr>
+            
+            <tr>
+                <td>EC2</td>
+                <td>0</td>
+                <td>16</td>
+                <td>0</td>
+            </tr>
+            
+            <tr>
+                <td>EKS</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+            </tr>
+            
+            <tr>
+                <td>IAM</td>
+                <td>0</td>
+                <td>7</td>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <td>Lambda</td>
+                <td>0</td>
+                <td>0</td>
+                <td>50</td>
+            </tr>
+            
+            <tr>
+                <td>RDS</td>
+                <td>0</td>
+                <td>0</td>
+                <td>6</td>
+            </tr>
+            
+            <tr>
+                <td>SecurityGroup</td>
+                <td>62</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="charts">
+        <div class="chart"><div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="bde48b90-f9f5-42a1-a3f2-0e16746f803c" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("bde48b90-f9f5-42a1-a3f2-0e16746f803c")) {                    Plotly.newPlot(                        "bde48b90-f9f5-42a1-a3f2-0e16746f803c",                        [{"labels":["Low","High","Medium"],"values":{"dtype":"i1","bdata":"QD4X"},"type":"pie"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div></div>
+        <div class="chart"><div>                            <div id="53e22463-3df6-40ea-a1b7-63062571ff65" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("53e22463-3df6-40ea-a1b7-63062571ff65")) {                    Plotly.newPlot(                        "53e22463-3df6-40ea-a1b7-63062571ff65",                        [{"name":"High","x":["EC2","EKS","IAM","Lambda","RDS","SecurityGroup"],"y":{"dtype":"i1","bdata":"AAAAAAA+"},"type":"bar"},{"name":"Medium","x":["EC2","EKS","IAM","Lambda","RDS","SecurityGroup"],"y":{"dtype":"i1","bdata":"EAAHAAAA"},"type":"bar"},{"name":"Low","x":["EC2","EKS","IAM","Lambda","RDS","SecurityGroup"],"y":{"dtype":"i1","bdata":"AAUDMgYA"},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div></div>
+    </div>
+    <h2>Detailed Findings</h2>
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Resource ID</th>
+            <th>Finding</th>
+            <th>Port range</th>
+            <th>Severity</th>
+            <th>Recommendation</th>
+            <th>CIS Benchmark</th>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0f7480115cadca95b</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-034fceaec254c66fa</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0aa1c66f491be842c</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-09507ce7fc198127f</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0dac2773fc237e53a</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0764de952d8ead1bc</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0ec508689d55ddb84</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0d05a7fa27a25b14a</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-05cc83fbe4100f0d5</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0bdccbbe773456207</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-02fad3584fcbdd86d</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-0f074a4a417930f2c</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-07794f51a02e6b6cc</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-034dfd556d4eb0cc4</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-01bd2521b1dbe9159</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>EC2</td>
+            <td>i-02962a2a9e0aaf27c</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c9bc92171caf18c9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>30880</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c9bc92171caf18c9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>31289</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c9bc92171caf18c9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>30207</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c9bc92171caf18c9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c9bc92171caf18c9</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>32147</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0b15c3f059865283d</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0b15c3f059865283d</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>8081</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c87ee09dfaf87840</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>8085</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c87ee09dfaf87840</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-04d9b455a5cb2b114</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-084579542b769a967</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-084579542b769a967</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-084579542b769a967</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>443</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0f4d65c01055eca50</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0f4d65c01055eca50</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>9000</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0f4d65c01055eca50</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0f4d65c01055eca50</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>443</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0ee9ea6ac164ebe3a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>9464</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0ee9ea6ac164ebe3a</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>8085</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0263f43071f3935d5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>None</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0263f43071f3935d5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>32115</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0263f43071f3935d5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>30735</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0263f43071f3935d5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>31329</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0263f43071f3935d5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0263f43071f3935d5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>32293</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0263f43071f3935d5</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3100</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c58a8eb927149542</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0c58a8eb927149542</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3100</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-004be6627c13fab8e</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0646b5ea660fa6efc</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>31771</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0646b5ea660fa6efc</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>32685</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0646b5ea660fa6efc</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>30213</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0646b5ea660fa6efc</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0646b5ea660fa6efc</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>30265</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0333bbd6d2671564f</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0904300888aabd3df</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>8080</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0904300888aabd3df</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>9090</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0904300888aabd3df</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08c0124a79ba4e693</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08c0124a79ba4e693</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08c0124a79ba4e693</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>4200</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-08c0124a79ba4e693</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>443</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0da6b79821174432c</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0da6b79821174432c</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0da6b79821174432c</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>443</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0bfdfbfe70afba702</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0bfdfbfe70afba702</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-038e721d200dbb495</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-038e721d200dbb495</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-038e721d200dbb495</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3389</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-038e721d200dbb495</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>443</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-05bd489864b146b87</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>0-65535</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-00e2c6e9657d464e3</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>80</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-00e2c6e9657d464e3</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>443</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-0e7cda7430fec6308</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>22</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-00de23c502b15d499</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>9090</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-00de23c502b15d499</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02bb5d515ed324604</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>31309</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02bb5d515ed324604</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>30207</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02bb5d515ed324604</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>3-4</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02bb5d515ed324604</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>32678</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>SecurityGroup</td>
+            <td>sg-02bb5d515ed324604</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td>30510</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>ado-terraform-user</td>
+            <td>User has no MFA enabled.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>cicd-user</td>
+            <td>User has no MFA enabled.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>cloudwatch-grafana-logs-user</td>
+            <td>User has no MFA enabled.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>devs-app-access-user</td>
+            <td>User has no MFA enabled.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>ods-api</td>
+            <td>User has no MFA enabled.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>rancher-user</td>
+            <td>User has no MFA enabled.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>rms-user</td>
+            <td>User has no MFA enabled.</td>
+            <td>nan</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>cicd-user:AKIAR3HUONUL5EGWBS6J</td>
+            <td>Access key unused for over 90 days.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>devs-app-access-user:AKIAR3HUONULSXG4K442</td>
+            <td>Access key unused for over 90 days.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+        
+        <tr>
+            <td>IAM</td>
+            <td>rms-user:AKIAR3HUONUL34EAD3RO</td>
+            <td>Access key unused for over 90 days.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+        
+        <tr>
+            <td>RDS</td>
+            <td>tf-20240911112544606200000009</td>
+            <td>RDS instance is not encrypted.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Enable encryption for RDS instances.</td>
+            <td>CIS 2.2.1</td>
+        </tr>
+        
+        <tr>
+            <td>RDS</td>
+            <td>tf-2024091705515167520000000c</td>
+            <td>RDS instance is not encrypted.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Enable encryption for RDS instances.</td>
+            <td>CIS 2.2.1</td>
+        </tr>
+        
+        <tr>
+            <td>RDS</td>
+            <td>tf-2024111519421073770000000e</td>
+            <td>RDS instance is not encrypted.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Enable encryption for RDS instances.</td>
+            <td>CIS 2.2.1</td>
+        </tr>
+        
+        <tr>
+            <td>RDS</td>
+            <td>tf-20250425060345086700000004</td>
+            <td>RDS instance is not encrypted.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Enable encryption for RDS instances.</td>
+            <td>CIS 2.2.1</td>
+        </tr>
+        
+        <tr>
+            <td>RDS</td>
+            <td>tf-20250820113300385100000001</td>
+            <td>RDS instance is not encrypted.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Enable encryption for RDS instances.</td>
+            <td>CIS 2.2.1</td>
+        </tr>
+        
+        <tr>
+            <td>RDS</td>
+            <td>tf-20250826153229158000000011</td>
+            <td>RDS instance is not encrypted.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Enable encryption for RDS instances.</td>
+            <td>CIS 2.2.1</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>u-fpa-authorizer-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>u-fpa-getcustomer-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>qa-fpa-getcustomer-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>aws-controltower-NotificationForwarder</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>security-hub-weekly-report</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>u-fpa-hcp-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>u-lf-idpsync-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>g-fpa-websocket-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>hcp-lf-domains-delete</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>qa-fpa-hcp-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>qa-fpa-getprogram-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>g-fpa-hcp-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-hcp-lf-qa</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>u-fpa-getprogram-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>poc_contactcreds_genertor</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-hcp-cf-lf</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>databricks-workspace-stack-ce5bc-CopyZipsFunction-LXecjw6ArqKH</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-fpa-authorizer-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>databricks-s3-ingest-uat-e46-databricksApiFunction-uWpRX9BdEMhN</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>d-fpa-hcp-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-hcp-lf</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-fpa-getservice-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-fpa-hcp-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>route53-domains-export</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>d-lf-hcp-function-url</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-hcp-cf-lf-2</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>databricks-workspace-stack-u-databricksApiFunction-B2PE74KlDwpZ</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>CloudWatchAlert</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>d-lf-idpsync-03</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>qa-fpa-getservice-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>dev-lf-fpa-history</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>g-fpa-getprogram-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>databricks-workspace-stack-uat-43-CopyZipsFunction-TGMNTt8oXDXs</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-hcp-cf-lef</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-fpa-getcustomer-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>u-fpa-getservice-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>neo-data-dbx-s3-ingest-databricksApiFunction-s6Zbw3OGWIDM</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>databricks-workspace-stack-c-databricksApiFunction-5aMXsVxeRyC8</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-fpa-getprogram-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>neo-data-dbx-s3-ingest-CopyZipsFunction-N3Mspp2HPxDf</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>neaovanceaiml</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>d-fpa-websocket-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>test-fpa-websocket-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>DatadogIntegration-ForwarderStack-27MAN5-Forwarder-EkgnaXHajPx0</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>qa-fpa-websocket-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>dev-lambda-websocket</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>q-lf-idpsync-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>history-lf-qa</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>cdc-lambda</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>Lambda</td>
+            <td>d-fpa-getservice-lf-01</td>
+            <td>Review Lambda function role for least privilege.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Ensure Lambda function role follows least privilege.</td>
+            <td>CIS 1.18</td>
+        </tr>
+        
+        <tr>
+            <td>EKS</td>
+            <td>d-fpa-eks-cluster-01</td>
+            <td>EKS cluster discovered.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Review EKS cluster security settings.</td>
+            <td>CIS 5.1</td>
+        </tr>
+        
+        <tr>
+            <td>EKS</td>
+            <td>g-fpa-eks-cluster-01</td>
+            <td>EKS cluster discovered.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Review EKS cluster security settings.</td>
+            <td>CIS 5.1</td>
+        </tr>
+        
+        <tr>
+            <td>EKS</td>
+            <td>qa-fpa-eks-cluster-01</td>
+            <td>EKS cluster discovered.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Review EKS cluster security settings.</td>
+            <td>CIS 5.1</td>
+        </tr>
+        
+        <tr>
+            <td>EKS</td>
+            <td>test-fpa-eks-cluster-01</td>
+            <td>EKS cluster discovered.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Review EKS cluster security settings.</td>
+            <td>CIS 5.1</td>
+        </tr>
+        
+        <tr>
+            <td>EKS</td>
+            <td>u-fpa-eks-cluster-01</td>
+            <td>EKS cluster discovered.</td>
+            <td>nan</td>
+            <td class="low">Low</td>
+            <td>Review EKS cluster security settings.</td>
+            <td>CIS 5.1</td>
+        </tr>
+        
+    </table>
+    <div class="footer">
+        AWS Security & Best Practices Reporting Tool &copy; 2025
+    </div>
+</div>
+</body>
+</html></div>
+    <div id="Cost" class="tabcontent">
+    <h2>AWS Cost Report</h2>
+    <div style="background:#e8f4fa;padding:10px;border-radius:6px;margin-bottom:20px;">
+    <b>Executive Summary</b><br>
+    <b>Account ID:</b> 245243128874<br>
+    <b>Scan Time:</b> 2025-08-28 05:11 UTC<br>
+    <b>Current Cost:</b> $11925.13 / month<br>
+    <b>Projected Cost After Optimization:</b> $4370.82 / month<br>
+    <b>Potential Savings:</b> $7554.31 (63.3%)
+    </div>
+    <h3>Cost by Service</h3>
+    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="ed9208c4-640e-47da-b926-af6f08a3a1b7" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("ed9208c4-640e-47da-b926-af6f08a3a1b7")) {                    Plotly.newPlot(                        "ed9208c4-640e-47da-b926-af6f08a3a1b7",                        [{"labels":["AWS CloudFormation","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS CloudTrail","AWS Config","AWS Database Migration Service","AWS Glue","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Key Management Service","AWS Lambda","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Secrets Manager","AWS Security Hub","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Step Functions","AWS Support (Business)","AWS WAF","AWS X-Ray","Amazon API Gateway","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon CloudFront","Amazon Cognito","Amazon Detective","Amazon DynamoDB","Amazon EC2 Container Registry (ECR)","Amazon ElastiCache","EC2 - Other","Amazon Elastic Compute Cloud - Compute","Amazon Elastic Container Service for Kubernetes","Amazon Elastic Load Balancing","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon Glacier","Amazon GuardDuty","Amazon Inspector","Amazon Kinesis","Amazon Macie","Amazon Managed Grafana","Amazon Managed Service for Prometheus","Amazon Relational Database Service","Amazon Route 53","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Notification Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Queue Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Storage Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon Simple Workflow Service","Amazon SimpleDB","Amazon SimpleDB","Amazon SimpleDB","Amazon SimpleDB","Amazon SimpleDB","Amazon SimpleDB","Amazon SimpleDB","Amazon SimpleDB","Amazon Virtual Private Cloud","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","AmazonCloudWatch","CloudWatch Events","Contact Center Telecommunications (service sold by AMCS, LLC)","Databricks Lakehouse Platform","Tax","Tax"],"values":{"dtype":"f8","bdata":"AAAAAAAAAABQATCeQUPbPwbYR6eufNo\u002fi6azk8FR1j+Amlq21hfZP+P8TShEwNk\u002fKa4q+64I2j9NEHUfgNTaP451cRsN4Nk\u002f2\u002fl+arx01z\u002fO34RCBBzaP4Bgjh6\u002ft9k\u002f5ujxe5v+2D\u002fgvg6cM6LYP73GLlG92WJAUfcBSG3i2D+eXinLEMfWP5CIKZFEL9s\u002faJHtfD+VTUAMAiuHFslkQAAAAAAAAAAA0O6QYoBEMz\u002fQ7pBigEQzP9DukGKARDM\u002f0O6QYoBEMz\u002fQ7pBigEQzP9DukGKARDM\u002f0O6QYoBEMz\u002fQ7pBigEQzP9DukGKARDM\u002f0O6QYoBEMz\u002fQ7pBigEQzP9DukGKARDM\u002f0O6QYoBEMz9JhhxbzxC+P9DukGKARDM\u002f0O6QYoBEMz9hMlUwKqkzP6NyWWUbfypALUMc6+I2Gj8tQxzr4jYaPy1DHOviNho\u002fLUMc6+I2Gj8tQxzr4jYaPy1DHOviNho\u002fLUMc6+I2Gj8tQxzr4jYaPy1DHOviNho\u002fLUMc6+I2Gj8tQxzr4jYaPy1DHOviNho\u002fLUMc6+I2Gj9fHsRsDxIUQC1DHOviNho\u002fLUMc6+I2Gj8tQxzr4jYaP57vp8ZLL0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtuo5eE0gYT626jl4TSBhPrbqOXhNIGE+tuo5eE0gYT626jl4TSBhPrbqOXhNIGE+AAAAAAAAAADH9D51t+nCPrbqOXhNIGE+tuo5eE0gYT626jl4TSBhPnxaI5XLEIZA8M98NsFmJEAgYK3aNWEAQHv\u002f98x\u002fEERAAAAAAAAAAABAbM\u002fGbyVyPmanCV31AP4+pmkCE2DitD4AAAAAAAAAAAAAAAAAAAAA2r9GpLr4Qz4AAAAAAAAAAKP5sqBvjEY+AAAAAAAAAADoM32GWeetPgAAAAAAAAAAZlaqnLJQd0AMuN+Iiy+8PpxlKIQUlUZA0GjBwP1mdEAtJcn\u002fWUB+QAq+Tsp1lKFAe\u002fN03vlLdUAeLb7Is\u002f9pQNgHH2vCzYQ+3S+WFqtOgj7YBx9rws2EPtq\u002fRqS6+IM+2Acfa8LNhD7Vl8\u002f40XeGPouGOJE6LHY+i4Y4kTosdj6LhjiROix2PouGOJE6LHY+i4Y4kTosdj6LhjiROix2PuF7eaUXOpA+ibFsqAiXzT6V1iboCy5xPouGOJE6LHY+i4Y4kTosdj4xs6rBRo9lQDTz\u002fFtNp2RAa2HIAUoiWUCo99PNZeAiQAAAAAAAAEBA94ntuSYXZEAnTrEUywWyQGptGttrwQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZ7ErZc1TYz5nsStlzVNjPmexK2XNU2M+Z7ErZc1TYz5nsStlzVNjPmexK2XNU2M+AAAAAAAAAAAf13rOs7zAP2exK2XNU2M+Z7ErZc1TYz5nsStlzVNjPiM\u002fLOXGPgI\u002fIz8s5cY+Aj8jPyzlxj4CPyM\u002fLOXGPgI\u002fIz8s5cY+Aj8jPyzlxj4CPyM\u002fLOXGPgI\u002fIz8s5cY+Aj8jPyzlxj4CPyM\u002fLOXGPgI\u002fIz8s5cY+Aj8jPyzlxj4CPyM\u002fLOXGPgI\u002fjQ8DukdL8z8jPyzlxj4CPyM\u002fLOXGPgI\u002fIz8s5cY+Aj\u002fQZcXLLnNFP3aJ6q2BrUI\u002fdonqrYGtQj84hCo1e6BFPziEKjV7oEU\u002fdonqrYGtQj92ieqtga1CP3aJ6q2BrUI\u002fOIQqNXugRT84hCo1e6BFP3aJ6q2BrUI\u002fdonqrYGtQj8AAAAAAAAAAHaJ6q2BrUI\u002fS2gk4B0HFkA4hCo1e6BFP3aJ6q2BrUI\u002fOIQqNXugRT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBnXa+wCh4PsGddr7AKHg+wZ12vsAoeD7BnXa+wCh4PsGddr7AKHg+wZ12vsAoeD4AAAAAAAAAAMGddr7AKHg+wZ12vsAoeD7BnXa+wCh4PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMaYryPyg8E+AAAAAAAAAAAAAAAAAAAAAMaYryPyg8E+xpivI\u002fKDwT6SynG\u002fnBhzQPw1WaMeopE\u002fmGn7V1aalD\u002f8NVmjHqKRP6EG3Mbpo5E\u002fL4Zyol2FlD9RFOgTeZKUP\u002fw1WaMeopE\u002f\u002fDVZox6ikT\u002f8NVmjHqKRPy+GcqJdhZQ\u002f\u002fDVZox6ikT\u002f8NVmjHqKRP2Gu8QtCCAFAPYBFfv0Qaz\u002fgionrnFuCQHfbheY6jZQ\u002fWYY41sVtlD\u002f8NVmjHqKRPwAAAAAAAAAAl2d088zMLEAAAAAAAHB\u002fQOxRuB6F6xZAAAAAAAAAAAA="},"type":"pie"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div>
+    <h3>Optimization Recommendations</h3>
+    <table border=1><tr><th>Service</th><th>Resource ID</th><th>Recommendation</th><th>Potential Savings</th></tr>
+    <tr><td>AWS CloudTrail</td><td></td><td>Consider rightsizing or reserved pricing for AWS CloudTrail.</td><td>$31.43</td></tr><tr><td>AWS Config</td><td></td><td>Consider rightsizing or reserved pricing for AWS Config.</td><td>$11.83</td></tr><tr><td>AWS Database Migration Service</td><td></td><td>Consider rightsizing or reserved pricing for AWS Database Migration Service.</td><td>$33.26</td></tr><tr><td>AWS Lambda</td><td></td><td>Consider rightsizing or reserved pricing for AWS Lambda.</td><td>$2.65</td></tr><tr><td>AWS Security Hub</td><td></td><td>Consider rightsizing or reserved pricing for AWS Security Hub.</td><td>$11.27</td></tr><tr><td>AWS Support (Business)</td><td></td><td>Consider rightsizing or reserved pricing for AWS Support (Business).</td><td>$141.22</td></tr><tr><td>AWS WAF</td><td></td><td>Consider rightsizing or reserved pricing for AWS WAF.</td><td>$2.04</td></tr><tr><td>Amazon API Gateway</td><td></td><td>Consider rightsizing or reserved pricing for Amazon API Gateway.</td><td>$8.03</td></tr><tr><td>Amazon Detective</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Detective.</td><td>$74.61</td></tr><tr><td>Amazon EC2 Container Registry (ECR)</td><td></td><td>Consider rightsizing or reserved pricing for Amazon EC2 Container Registry (ECR).</td><td>$9.03</td></tr><tr><td>Amazon ElastiCache</td><td></td><td>Consider rightsizing or reserved pricing for Amazon ElastiCache.</td><td>$65.29</td></tr><tr><td>Amazon Elastic Compute Cloud - Compute</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Elastic Compute Cloud - Compute.</td><td>$450.05</td></tr><tr><td>Amazon Elastic Container Service for Kubernetes</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Elastic Container Service for Kubernetes.</td><td>$68.15</td></tr><tr><td>Amazon Elastic Load Balancing</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Elastic Load Balancing.</td><td>$41.60</td></tr><tr><td>Amazon GuardDuty</td><td></td><td>Consider rightsizing or reserved pricing for Amazon GuardDuty.</td><td>$34.50</td></tr><tr><td>Amazon Inspector</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Inspector.</td><td>$33.05</td></tr><tr><td>Amazon Kinesis</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Kinesis.</td><td>$20.11</td></tr><tr><td>Amazon Managed Grafana</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Managed Grafana.</td><td>$6.40</td></tr><tr><td>Amazon Managed Service for Prometheus</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Managed Service for Prometheus.</td><td>$32.14</td></tr><tr><td>Amazon Relational Database Service</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Relational Database Service.</td><td>$922.76</td></tr><tr><td>Amazon Virtual Private Cloud</td><td></td><td>Consider rightsizing or reserved pricing for Amazon Virtual Private Cloud.</td><td>$61.11</td></tr><tr><td>AmazonCloudWatch</td><td></td><td>Consider rightsizing or reserved pricing for AmazonCloudWatch.</td><td>$117.97</td></tr><tr><td>Contact Center Telecommunications (service sold by AMCS, LLC)</td><td></td><td>Consider rightsizing or reserved pricing for Contact Center Telecommunications (service sold by AMCS, LLC).</td><td>$2.88</td></tr><tr><td>Databricks Lakehouse Platform</td><td></td><td>Consider rightsizing or reserved pricing for Databricks Lakehouse Platform.</td><td>$100.60</td></tr><tr><td>EC2 - Other</td><td></td><td>Consider rightsizing or reserved pricing for EC2 - Other.</td><td>$96.80</td></tr><tr><td>EC2</td><td>i-0f7480115cadca95b</td><td>Instance i-0f7480115cadca95b was idle (730h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-034fceaec254c66fa</td><td>Instance i-034fceaec254c66fa was idle (646h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0aa1c66f491be842c</td><td>Instance i-0aa1c66f491be842c was idle (700h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-09507ce7fc198127f</td><td>Instance i-09507ce7fc198127f was idle (701h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0dac2773fc237e53a</td><td>Instance i-0dac2773fc237e53a was idle (223h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0764de952d8ead1bc</td><td>Instance i-0764de952d8ead1bc was idle (737h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0d05a7fa27a25b14a</td><td>Instance i-0d05a7fa27a25b14a was idle (744h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-05cc83fbe4100f0d5</td><td>Instance i-05cc83fbe4100f0d5 was idle (744h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0bdccbbe773456207</td><td>Instance i-0bdccbbe773456207 was idle (570h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0b7522629ae3dfec5</td><td>Instance i-0b7522629ae3dfec5 was idle (196h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-02fad3584fcbdd86d</td><td>Instance i-02fad3584fcbdd86d was idle (744h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0f074a4a417930f2c</td><td>Instance i-0f074a4a417930f2c was idle (734h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-07794f51a02e6b6cc</td><td>Instance i-07794f51a02e6b6cc was idle (534h/534h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0d1d4666088872764</td><td>Instance i-0d1d4666088872764 was idle (52h/406h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-08e11973a6465a044</td><td>Instance i-08e11973a6465a044 was idle (115h/406h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-034dfd556d4eb0cc4</td><td>Instance i-034dfd556d4eb0cc4 was idle (374h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-07f06054eae829ce6</td><td>Instance i-07f06054eae829ce6 was idle (19h/378h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-01bd2521b1dbe9159</td><td>Instance i-01bd2521b1dbe9159 was idle (744h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-07c2e9a26af191b35</td><td>Instance i-07c2e9a26af191b35 was idle (24h/377h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-02962a2a9e0aaf27c</td><td>Instance i-02962a2a9e0aaf27c was idle (528h/744h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0fe4b3dc713019cb4</td><td>Instance i-0fe4b3dc713019cb4 was idle (129h/406h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-05a61212a62fb43cf</td><td>Instance i-05a61212a62fb43cf was idle (120h/394h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr><tr><td>EC2</td><td>i-0066ea8754c7f2285</td><td>Instance i-0066ea8754c7f2285 was idle (11h/394h) last month. Consider stopping during off-hours.</td><td>$225.02</td></tr>
+    </table>
+    <h3>EC2 Idle Instance Report</h3>
+    
+    <table border=1><tr><th>Instance ID</th><th>Idle Hours</th><th>Total Hours</th><th>Recommendation</th></tr>
+    
+    <tr><td>i-0f7480115cadca95b</td><td>730</td><td>744</td><td>Instance i-0f7480115cadca95b was idle (730h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-034fceaec254c66fa</td><td>646</td><td>744</td><td>Instance i-034fceaec254c66fa was idle (646h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0aa1c66f491be842c</td><td>700</td><td>744</td><td>Instance i-0aa1c66f491be842c was idle (700h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-09507ce7fc198127f</td><td>701</td><td>744</td><td>Instance i-09507ce7fc198127f was idle (701h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0dac2773fc237e53a</td><td>223</td><td>744</td><td>Instance i-0dac2773fc237e53a was idle (223h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0764de952d8ead1bc</td><td>737</td><td>744</td><td>Instance i-0764de952d8ead1bc was idle (737h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0d05a7fa27a25b14a</td><td>744</td><td>744</td><td>Instance i-0d05a7fa27a25b14a was idle (744h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-05cc83fbe4100f0d5</td><td>744</td><td>744</td><td>Instance i-05cc83fbe4100f0d5 was idle (744h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0bdccbbe773456207</td><td>570</td><td>744</td><td>Instance i-0bdccbbe773456207 was idle (570h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0b7522629ae3dfec5</td><td>196</td><td>744</td><td>Instance i-0b7522629ae3dfec5 was idle (196h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-02fad3584fcbdd86d</td><td>744</td><td>744</td><td>Instance i-02fad3584fcbdd86d was idle (744h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0f074a4a417930f2c</td><td>734</td><td>744</td><td>Instance i-0f074a4a417930f2c was idle (734h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-07794f51a02e6b6cc</td><td>534</td><td>534</td><td>Instance i-07794f51a02e6b6cc was idle (534h/534h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0d1d4666088872764</td><td>52</td><td>406</td><td>Instance i-0d1d4666088872764 was idle (52h/406h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-08e11973a6465a044</td><td>115</td><td>406</td><td>Instance i-08e11973a6465a044 was idle (115h/406h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-034dfd556d4eb0cc4</td><td>374</td><td>744</td><td>Instance i-034dfd556d4eb0cc4 was idle (374h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-07f06054eae829ce6</td><td>19</td><td>378</td><td>Instance i-07f06054eae829ce6 was idle (19h/378h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-01bd2521b1dbe9159</td><td>744</td><td>744</td><td>Instance i-01bd2521b1dbe9159 was idle (744h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-07c2e9a26af191b35</td><td>24</td><td>377</td><td>Instance i-07c2e9a26af191b35 was idle (24h/377h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-02962a2a9e0aaf27c</td><td>528</td><td>744</td><td>Instance i-02962a2a9e0aaf27c was idle (528h/744h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0fe4b3dc713019cb4</td><td>129</td><td>406</td><td>Instance i-0fe4b3dc713019cb4 was idle (129h/406h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-05a61212a62fb43cf</td><td>120</td><td>394</td><td>Instance i-05a61212a62fb43cf was idle (120h/394h) last month. Consider stopping during off-hours.</td></tr>
+    
+    <tr><td>i-0066ea8754c7f2285</td><td>11</td><td>394</td><td>Instance i-0066ea8754c7f2285 was idle (11h/394h) last month. Consider stopping during off-hours.</td></tr>
+    
+    </table>
+    
+    <h3>Before vs After Optimization</h3>
+    <div>                            <div id="2445c940-39b5-43a5-b92b-38fbd5292e50" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("2445c940-39b5-43a5-b92b-38fbd5292e50")) {                    Plotly.newPlot(                        "2445c940-39b5-43a5-b92b-38fbd5292e50",                        [{"name":"Current","x":["Cost"],"y":[11925.133279725398],"type":"bar"},{"name":"Optimized","x":["Cost"],"y":[4370.82414377378],"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };            </script>        </div>
+    <h3>Raw Data</h3>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>service</th>
+      <th>region</th>
+      <th>cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AWS CloudFormation</td>
+      <td>us-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>ap-northeast-1</td>
+      <td>4.259800e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>ap-northeast-2</td>
+      <td>4.138600e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>ap-northeast-3</td>
+      <td>3.487400e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>ap-south-1</td>
+      <td>3.920800e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>ap-southeast-1</td>
+      <td>4.023600e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>ap-southeast-2</td>
+      <td>4.067800e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>ca-central-1</td>
+      <td>4.192200e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>eu-central-1</td>
+      <td>4.043000e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>eu-north-1</td>
+      <td>3.665000e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>eu-west-1</td>
+      <td>4.079600e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>eu-west-2</td>
+      <td>4.018400e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>eu-west-3</td>
+      <td>3.905400e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>sa-east-1</td>
+      <td>3.849000e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>us-east-1</td>
+      <td>1.508044e+02</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>us-east-2</td>
+      <td>3.888200e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>us-west-1</td>
+      <td>3.559000e-01</td>
+    </tr>
+    <tr>
+      <td>AWS CloudTrail</td>
+      <td>us-west-2</td>
+      <td>4.247600e-01</td>
+    </tr>
+    <tr>
+      <td>AWS Config</td>
+      <td>us-east-1</td>
+      <td>5.916600e+01</td>
+    </tr>
+    <tr>
+      <td>AWS Database Migration Service</td>
+      <td>us-east-1</td>
+      <td>1.662840e+02</td>
+    </tr>
+    <tr>
+      <td>AWS Glue</td>
+      <td>us-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>ap-northeast-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>ap-northeast-2</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>ap-northeast-3</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>ap-south-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>ap-southeast-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>ap-southeast-2</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>ca-central-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>eu-central-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>eu-north-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>eu-west-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>eu-west-2</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>eu-west-3</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>sa-east-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>us-east-1</td>
+      <td>1.174440e-01</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>us-east-2</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>us-west-1</td>
+      <td>2.940000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Key Management Service</td>
+      <td>us-west-2</td>
+      <td>3.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Lambda</td>
+      <td>us-east-1</td>
+      <td>1.324826e+01</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>ap-northeast-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>ap-northeast-2</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>ap-northeast-3</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>ap-south-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>ap-southeast-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>ap-southeast-2</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>ca-central-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>eu-central-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>eu-north-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>eu-west-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>eu-west-2</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>eu-west-3</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>sa-east-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>us-east-1</td>
+      <td>5.017637e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>us-east-2</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>us-west-1</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Secrets Manager</td>
+      <td>us-west-2</td>
+      <td>1.000000e-04</td>
+    </tr>
+    <tr>
+      <td>AWS Security Hub</td>
+      <td>us-east-1</td>
+      <td>5.636950e+01</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>ap-northeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>ap-northeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>ap-northeast-3</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>ap-south-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>ap-southeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>ap-southeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>ca-central-1</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>eu-central-1</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>eu-north-1</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>eu-west-1</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>eu-west-2</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>eu-west-3</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>sa-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>us-east-1</td>
+      <td>2.254600e-06</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>us-east-2</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>us-west-1</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Step Functions</td>
+      <td>us-west-2</td>
+      <td>3.190000e-08</td>
+    </tr>
+    <tr>
+      <td>AWS Support (Business)</td>
+      <td>global</td>
+      <td>7.060994e+02</td>
+    </tr>
+    <tr>
+      <td>AWS WAF</td>
+      <td>global</td>
+      <td>1.020069e+01</td>
+    </tr>
+    <tr>
+      <td>AWS X-Ray</td>
+      <td>us-east-1</td>
+      <td>2.047466e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon API Gateway</td>
+      <td>us-east-1</td>
+      <td>4.012890e+01</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>af-south-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>ap-northeast-1</td>
+      <td>6.760000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>ap-south-1</td>
+      <td>2.861380e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>ap-southeast-1</td>
+      <td>1.244800e-06</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>ap-southeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>ca-central-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>eu-west-1</td>
+      <td>9.300000e-09</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>global</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>me-south-1</td>
+      <td>1.050000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>sa-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon CloudFront</td>
+      <td>us-east-1</td>
+      <td>8.912000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Cognito</td>
+      <td>us-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Detective</td>
+      <td>us-east-1</td>
+      <td>3.730436e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon DynamoDB</td>
+      <td>us-east-1</td>
+      <td>1.680000e-06</td>
+    </tr>
+    <tr>
+      <td>Amazon EC2 Container Registry (ECR)</td>
+      <td>us-east-1</td>
+      <td>4.516469e+01</td>
+    </tr>
+    <tr>
+      <td>Amazon ElastiCache</td>
+      <td>us-east-1</td>
+      <td>3.264370e+02</td>
+    </tr>
+    <tr>
+      <td>EC2 - Other</td>
+      <td>us-east-1</td>
+      <td>4.840220e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon Elastic Compute Cloud - Compute</td>
+      <td>us-east-1</td>
+      <td>2.250230e+03</td>
+    </tr>
+    <tr>
+      <td>Amazon Elastic Container Service for Kubernetes</td>
+      <td>us-east-1</td>
+      <td>3.407485e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon Elastic Load Balancing</td>
+      <td>us-east-1</td>
+      <td>2.079907e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>ap-northeast-1</td>
+      <td>1.550000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>ap-northeast-2</td>
+      <td>1.364000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>ap-northeast-3</td>
+      <td>1.550000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>ap-south-1</td>
+      <td>1.488000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>ap-southeast-1</td>
+      <td>1.550000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>ap-southeast-2</td>
+      <td>1.674000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>ca-central-1</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>eu-central-1</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>eu-north-1</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>eu-west-1</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>eu-west-2</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>eu-west-3</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>sa-east-1</td>
+      <td>2.418000e-07</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>us-east-1</td>
+      <td>3.527400e-06</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>us-east-2</td>
+      <td>6.400000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>us-west-1</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Glacier</td>
+      <td>us-west-2</td>
+      <td>8.260000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon GuardDuty</td>
+      <td>us-east-1</td>
+      <td>1.724774e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon Inspector</td>
+      <td>us-east-1</td>
+      <td>1.652282e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon Kinesis</td>
+      <td>us-east-1</td>
+      <td>1.005358e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon Macie</td>
+      <td>us-east-1</td>
+      <td>9.438277e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Managed Grafana</td>
+      <td>us-east-1</td>
+      <td>3.200000e+01</td>
+    </tr>
+    <tr>
+      <td>Amazon Managed Service for Prometheus</td>
+      <td>us-east-1</td>
+      <td>1.607235e+02</td>
+    </tr>
+    <tr>
+      <td>Amazon Relational Database Service</td>
+      <td>us-east-1</td>
+      <td>4.613793e+03</td>
+    </tr>
+    <tr>
+      <td>Amazon Route 53</td>
+      <td>global</td>
+      <td>2.094444e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>ap-northeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>ap-northeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>ap-northeast-3</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>ap-south-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>ap-southeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>ap-southeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>ca-central-1</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>eu-central-1</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>eu-north-1</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>eu-west-1</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>eu-west-2</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>eu-west-3</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>sa-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>us-east-1</td>
+      <td>1.307587e-01</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>us-east-2</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>us-west-1</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Notification Service</td>
+      <td>us-west-2</td>
+      <td>3.600000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>ap-northeast-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>ap-northeast-2</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>ap-northeast-3</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>ap-south-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>ap-southeast-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>ap-southeast-2</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>ca-central-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>eu-central-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>eu-north-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>eu-west-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>eu-west-2</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>eu-west-3</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>sa-east-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>us-east-1</td>
+      <td>1.205879e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>us-east-2</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>us-west-1</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Queue Service</td>
+      <td>us-west-2</td>
+      <td>3.480000e-05</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ap-northeast-1</td>
+      <td>6.546000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ap-northeast-2</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ap-northeast-3</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ap-south-1</td>
+      <td>6.600000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ap-southeast-1</td>
+      <td>6.600000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ap-southeast-2</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>ca-central-1</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>eu-central-1</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>eu-north-1</td>
+      <td>6.600000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>eu-west-1</td>
+      <td>6.600000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>eu-west-2</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>eu-west-3</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>global</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>sa-east-1</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>us-east-1</td>
+      <td>5.506950e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>us-east-2</td>
+      <td>6.600000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>us-west-1</td>
+      <td>5.700000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Storage Service</td>
+      <td>us-west-2</td>
+      <td>6.600000e-04</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>ap-northeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>ap-northeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>ap-northeast-3</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>ap-south-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>ap-southeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>ap-southeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>ca-central-1</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>eu-central-1</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>eu-north-1</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>eu-west-1</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>eu-west-2</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>eu-west-3</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>sa-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>us-east-2</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>us-west-1</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon Simple Workflow Service</td>
+      <td>us-west-2</td>
+      <td>9.000000e-08</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>ap-northeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>ap-southeast-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>ap-southeast-2</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>eu-west-1</td>
+      <td>2.088000e-06</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>sa-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>us-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>us-west-1</td>
+      <td>2.088000e-06</td>
+    </tr>
+    <tr>
+      <td>Amazon SimpleDB</td>
+      <td>us-west-2</td>
+      <td>2.088000e-06</td>
+    </tr>
+    <tr>
+      <td>Amazon Virtual Private Cloud</td>
+      <td>us-east-1</td>
+      <td>3.055383e+02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>ap-northeast-1</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>ap-northeast-2</td>
+      <td>2.012000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>ap-northeast-3</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>ap-south-1</td>
+      <td>1.722684e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>ap-southeast-1</td>
+      <td>2.004000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>ap-southeast-2</td>
+      <td>2.009000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>ca-central-1</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>eu-central-1</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>eu-north-1</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>eu-west-1</td>
+      <td>2.004000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>eu-west-2</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>eu-west-3</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>global</td>
+      <td>2.129032e+00</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>sa-east-1</td>
+      <td>3.304000e-03</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>us-east-1</td>
+      <td>5.874516e+02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>us-east-2</td>
+      <td>2.007000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>us-west-1</td>
+      <td>1.995000e-02</td>
+    </tr>
+    <tr>
+      <td>AmazonCloudWatch</td>
+      <td>us-west-2</td>
+      <td>1.722000e-02</td>
+    </tr>
+    <tr>
+      <td>CloudWatch Events</td>
+      <td>us-east-1</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <td>Contact Center Telecommunications (service sold by AMCS, LLC)</td>
+      <td>us-east-1</td>
+      <td>1.440000e+01</td>
+    </tr>
+    <tr>
+      <td>Databricks Lakehouse Platform</td>
+      <td>us-east-1</td>
+      <td>5.030000e+02</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td>NoRegion</td>
+      <td>5.730000e+00</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td>global</td>
+      <td>0.000000e+00</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    </body></html>
+    
