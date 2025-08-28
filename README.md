@@ -25,6 +25,7 @@ A professional tool for AWS consultants to assess and report on AWS account secu
    ```
 4. Ensure your AWS credentials are configured (via AWS CLI, environment, or `--profile`).
 
+
 ## Usage
 Run a scan and generate a combined Security & Cost report (using a specific AWS CLI profile):
 ```sh
@@ -34,6 +35,22 @@ python main.py --profile myawsprofile --output reports/report.html
 Or use the default profile:
 ```sh
 python main.py --output reports/report.html
+```
+
+### Permission Checks (New Feature)
+At startup, the tool checks if your AWS credentials/role have the required permissions for both security scanning and Cost Explorer. If any required permissions are missing:
+- A clear error message is printed and the script exits (for critical security scan permissions).
+- If Cost Explorer is enabled but historical data is not available, a warning is shown and the cost report will be limited, but the security scan will still run.
+
+**Example output:**
+```
+[ERROR] Missing required EC2 permissions or credentials for security scan.
+Details: ...
+[FATAL] Insufficient AWS permissions for security scan and/or cost explorer. Exiting.
+```
+or
+```
+[WARNING] Cost Explorer is enabled, but historical data is not available. Cost report will be limited.
 ```
 
 ## Output
