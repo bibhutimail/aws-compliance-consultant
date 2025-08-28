@@ -1,6 +1,7 @@
 import argparse
 from aws_security_scan.scanner import Scanner
 from aws_security_scan.report import ReportGenerator
+from aws_security_scan.permission_check import check_permissions
 import boto3
 import sys
 import importlib.util
@@ -11,6 +12,18 @@ def main():
     parser.add_argument('--profile', type=str, help='AWS CLI profile name', default=None)
     parser.add_argument('--output', type=str, help='Output HTML report file', default='reports/report.html')
     args = parser.parse_args()
+
+
+    # Prepare session for permission check
+    if args.profile:
+        session = boto3.Session(profile_name=args.profile)
+    else:
+        session = boto3.Session()
+
+    # Check permissions before running scan
+    if not check_permissions(session):
+        print("[FATAL] Insufficient AWS permissions for security scan and/or cost explorer. Exiting.")
+        sys.exit(1)
 
     scanner = Scanner(profile=args.profile)
     findings, account_id = scanner.run_all_checks()
@@ -25,11 +38,7 @@ def main():
     cost_mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(cost_mod)
 
-    # Prepare session for cost report
-    if args.profile:
-        session = boto3.Session(profile_name=args.profile)
-    else:
-        session = boto3.Session()
+    # Prepare session for cost report (already created above)
 
     today = cost_mod.datetime.utcnow().date()
     first = today.replace(day=1)
