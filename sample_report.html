@@ -1,1 +1,89 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Security Assessment Report — Masked</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
+        .container { max-width: 1000px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
+        h1, h2, h3 { color: #2d3e50; }
+        .summary { background: #e8f4fa; padding: 20px; border-radius: 6px; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { padding: 10px; border-bottom: 1px solid #e0e0e0; }
+        th { background: #f0f6fa; }
+        .high { color: #d32f2f; font-weight: bold; }
+        .medium { color: #fbc02d; font-weight: bold; }
+        .low { color: #388e3c; font-weight: bold; }
+        .charts { display: flex; gap: 30px; flex-wrap: wrap; }
+        .chart { flex: 1 1 400px; background: #fafbfc; border-radius: 6px; padding: 10px; }
+        .footer { text-align: right; color: #888; font-size: 0.9em; margin-top: 40px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>AWS Security Assessment Report — Masked</h1>
+    <div class="summary">
+        <h2>Executive Summary</h2>
+        <p><b>Account ID:</b> [REDACTED_ACCOUNT]<br>
+        <b>Scan Time:</b> 2025-08-24 16:28 UTC</p>
+        <ul>
+            <li><b>Total Findings:</b> 85</li>
+            <li><span class="high">High:</span> 59</li>
+            <li><span class="medium">Medium:</span> 12</li>
+            <li><span class="low">Low:</span> 14</li>
+        </ul>
+        <!-- Summary table unchanged -->
+    </div>
+
+    <h2>Detailed Findings</h2>
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Resource ID</th>
+            <th>Finding</th>
+            <th>Severity</th>
+            <th>Recommendation</th>
+            <th>CIS Benchmark</th>
+        </tr>
+
+        <!-- Example rows -->
+        <tr>
+            <td>EC2</td>
+            <td>[REDACTED_INSTANCE]</td>
+            <td>EC2 instance has a public IP address.</td>
+            <td class="medium">Medium</td>
+            <td>Remove public IP or restrict access with security groups.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        <tr>
+            <td>SecurityGroup</td>
+            <td>[REDACTED_SG]</td>
+            <td>Security group open to 0.0.0.0/0.</td>
+            <td class="high">High</td>
+            <td>Restrict security group ingress rules.</td>
+            <td>CIS 4.1</td>
+        </tr>
+        <tr>
+            <td>IAM</td>
+            <td>[REDACTED_USER]</td>
+            <td>User has no MFA enabled.</td>
+            <td class="medium">Medium</td>
+            <td>Enable MFA for all IAM users.</td>
+            <td>CIS 1.14</td>
+        </tr>
+        <tr>
+            <td>IAM</td>
+            <td>[REDACTED_KEY]</td>
+            <td>Access key unused for over 90 days.</td>
+            <td class="low">Low</td>
+            <td>Rotate or remove unused access keys.</td>
+            <td>CIS 1.3</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        AWS Security & Best Practices Reporting Tool &copy; 2025
+    </div>
+</div>
+</body>
+</html>
