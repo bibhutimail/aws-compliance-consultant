@@ -54,6 +54,7 @@ The `--profile` option lets you specify which AWS credentials and account to use
 Add new checks or services by extending modules in `aws_security_scan/` or cost logic in `reports/aws_cost_report.py`.
 
 ## Sample report
-[View AWS Report](./reports/report.html)
+## Live Demo
+👉 [View SOC2 Report](https://bibhutimail.github.io/aws-compliance-consultant/report.html)
 ---
 © 2025 AWS Security & Cost Consultant Tool
